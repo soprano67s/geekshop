@@ -257,6 +257,15 @@ body {
   width: 48px;
   height: 48px;
 }
+.product-link-2 {
+  width: 370px;
+  height: 370px;
+  position: absolute;
+}
+.product-link-2:hover {
+  background-color: white;
+  opacity: 0.5;
+}
 .product-text {
   height: 100%;
   border: 1px solid #9c9c9c;
