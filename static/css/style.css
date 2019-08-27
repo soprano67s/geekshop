@@ -55,7 +55,7 @@ body {
 .links-menu {
   display: flex;
   justify-content: space-between;
-  max-width: 40rem;
+  width: 40rem;
   list-style: none;
 }
 .slider-h4 {

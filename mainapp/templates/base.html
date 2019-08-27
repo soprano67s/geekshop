@@ -1,0 +1,73 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+            {{ title | title }}
+        {% endblock %}
+    </title>
+    {% block css %}
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        {% block header %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+<footer class="footer">
+{% block footer %}
+    <div class="footer-up">
+        <div class="footer-up-right">
+            <div class="footer-contact-as">
+                <h4 class="contact-as-h4">Contact Us</h4>
+                <p class="contact-as-p">132A Bridge Road Richmond VIC Australia.
+                <br><br>Talk to us on 1300 132
+                info@interior.com</p>
+            </div>
+            <div class="useful-information">
+                <h4 class="useful-info-h4">useful&nbsp;information</h4>
+                <div class="useful-info-col1">
+                    <a class="useful-info-link" href="#">Sales&nbsp;terms</a>
+                    <a class="useful-info-link" href="#">Customer&nbsp;care</a>
+                    <a class="useful-info-link" href="#">Delivery</a>
+                </div>
+                <div class="useful-info-col2">
+                    <a class="useful-info-link" href="#">Architect&nbsp;accounts</a>
+                    <a class="useful-info-link" href="#">Careers</a>
+                    <a class="useful-info-link" href="#">Exchanges&nbsp;&&nbsp;returns</a>
+                </div>
+            </div>
+        </div>
+        <div class="lets-stay">
+            <h4 class="lets-stay-h4">Let’s Stay in Touch!</h4>
+            <p class="lets-stay-p">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
+            <div class="lets-stay-input"><input type="email" placeholder="your email address"></div>
+        </div>
+    </div>
+    <div class="footer-down">
+        <p class="copyright">© Copyright - INTERIOR 2016. All Rights Reserved.</p>
+        <div class="social-link">
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href="#"><i class="fab fa-twitter-square"></i></a>
+            <a href="#"><i class="fab fa-google-plus-square"></i></a>
+            <a href="#"><i class="fab fa-pinterest-square"></i></a>
+        </div>
+        <div class="terms-cond-link"><a href="#">Terms&nbsp;&&nbsp;Conditions</a>/<a href="#"> Privacy&nbsp;policy&nbsp;&&nbsp;Cookies</a></div>
+    </div>
+{% endblock %}
+</footer>
+</html>
