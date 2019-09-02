@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="/static/fonts/font-awesome/css/font-awesome.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-
-<body>
-    <div class="container">
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
         <div class="slider padding-site">
             <div class="header">
-                <a class="logo" href="/"><img src="/static/img/logo.svg" alt="logo"></a>
-                <ul class="menu">
-                    <li><a href="/" class="menu-link-active menu-link">HOME </a></li>
-                    <li><a href="/products/" class="menu-link">PRODUCTS </a></li>
-                    <li><a href="/contacts/" class="menu-link">CONTACT</a></li>
-                    <li><a href="#" class="menu-link"><img src="/static/img/search.svg" alt="search"></a></li>
-                </ul>
+                <a class="logo" href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
+                {% include 'includes/inc_menu.html' %}
             </div>
             <div class="slider-text">
                 <h4 class="slider-h4">TRENDING</h4>
@@ -28,15 +12,17 @@
                 <p class="slider-p">
                     Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black
                 </p>
-                <a href="#" class="button">order us<img class="arrow" src="/img/arrow.svg"></a>
+                <a href="#" class="button">order us<img class="arrow" src="{% static 'img/arrow.svg' %}"></a>
             </div>
             <div class="slider-pagination">
                 <a href="" class="circle"></a>
                 <a href="" class="circle circle-active"></a>
                 <a href="" class="circle"></a>
             </div>
-            
+
         </div>
+{% endblock %}
+{% block content %}
         <div class="featured-product padding-site">
             <div class="tab-control">
                 <a href="#" class="tab-link-active">Futured</a>
@@ -44,75 +30,56 @@
                 <div class="strok-active"></div><div class="stroke"></div>
             </div>
             <div class="btn-ghost">
-                <a href="#" class="explore-all">Explore all<img class="arrow" src="/static/img/arrow.svg" alt="arrow"></a>
+                <a href="#" class="explore-all">Explore all<img class="arrow" src="{% static 'img/arrow.svg' %}" alt="arrow"></a>
             </div>
             <div class="tab-content">
-                <div class="product" style="background-image: url(/static/img/product-1.jpg)">
-                    <div class="product-text">
-                        <a class="product-link" href="/product-details/"><img class="product-link" src="/static/img/icon-hover.svg"> </a>
-                        <h3 class="product-h3">Fishnet Chair</h3>
-                        <p class="product-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
+                {% for product in products %}
+                    <div class="product" style="background-image: url(../../media/{{product.image}})">
+                        <div class="product-text">
+                            <a class="product-link" href="/product-details/"><img class="product-link" src="{% static 'img/icon-hover.svg' %}"> </a>
+                            <h3 class="product-h3">{{ product.name }}</h3>
+                            <p class="product-p">{{product.description}}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="product" style="background-image: url(/static/img/product-2.jpg)">
-                    <div class="product-text">
-                        <a class="product-link" href="/product-details/"><img class="product-link" src="/static/img/icon-hover.svg"> </a>
-                        <h3 class="product-h3">Fishnet Chair</h3>
-                        <p class="product-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
-                    </div>
-                </div>
-                <div class="product" style="background-image: url(/static/img/product-3.jpg)">
-                    <div class="product-text">
-                        <a class="product-link" href="/product-details/"><img class="product-link" src="/static/img/icon-hover.svg"> </a>
-                        <h3 class="product-h3">Fishnet Chair</h3>
-                        <p class="product-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
-                    </div>
-                </div>
-                <div class="product" style="background-image: url(/static/img/product-4.jpg)">
-                    <div class="product-text">
-                        <a class="product-link" href="/product-details/"><img class="product-link" src="/static/img/icon-hover.svg"> </a>
-                        <h3 class="product-h3">Fishnet Chair</h3>
-                        <p class="product-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="promo-product">
-            <div class="promo-content-1" style="background-image: url(/static/img/promo-img1.jpg)">
+            <div class="promo-content-1" style="background-image: url({% static 'img/promo-img1.jpg' %})">
                 <h4 class="promo-h4">EXCLUSIVE</h4>
                 <h3 class="promo-h3">Fishnet Chair</h3>
                 <p class="promo-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black</p>
-                <a href="#" class="button">order us<img class="arrow" src="/static/img/arrow.svg"></a>
+                <a href="#" class="button">order us<img class="arrow" src="{% static 'static/img/arrow.svg' %}"></a>
             </div>
-            <div class="promo-content-2" style="background-image: url(/static/img/promo-img2.jpg)">
+            <div class="promo-content-2" style="background-image: url({% static 'img/promo-img2.jpg' %})">
                 <h4 class="promo-h4">EXCLUSIVE</h4>
                 <h3 class="promo-h3">Fishnet Chair</h3>
                 <p class="promo-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black</p>
-                <a href="#" class="button">order us<img class="arrow" src="/static/img/arrow.svg"></a>
+                <a href="#" class="button">order us<img class="arrow" src="{% static 'static/img/arrow.svg' %}"></a>
             </div>
         </div>
         <div class="trending-products padding-site">
             <div class="trending-tab">
                 <div class="trending-title">Trending Products</div>
                 <div class="btn-ghost">
-                    <a href="#" class="explore-all">Explore all<img class="arrow" src="/static/img/arrow.svg" alt="arrow"></a>
+                    <a href="#" class="explore-all">Explore all<img class="arrow" src="{% static 'img/arrow.svg' %}" alt="arrow"></a>
                 </div>
             </div>
             <div class="products">
-                    <div class="product" style="background-image: url(/static/img/product-6.jpg)"></div>
-                    <div class="product" style="background-image: url(/static/img/product-5.jpg)"></div>
-                    <div class="product" style="background-image: url(/static/img/product-11.jpg)"></div>
-                    <div class="product" style="background-image: url(/static/img/product-21.jpg)"></div>
-                    <div class="product" style="background-image: url(/static/img/product-31.jpg)"></div>
-                    <div class="product" style="background-image: url(/static/img/product-41.jpg)"></div>
+                    <div class="product" style="background-image: url({% static 'img/product-6.jpg' %})"><a  href="/product-details/" class="product-link-2"></div>
+                    <div class="product" style="background-image: url({% static 'img/product-5.jpg' %})"><a  href="/product-details/" class="product-link-2"></div>
+                    <div class="product" style="background-image: url({% static 'img/product-11.jpg' %})"><a  href="/product-details/" class="product-link-2"></div>
+                    <div class="product" style="background-image: url({% static 'img/product-21.jpg' %})"><a  href="/product-details/" class="product-link-2"></div>
+                    <div class="product" style="background-image: url({% static 'img/product-31.jpg' %})"><a  href="/product-details/" class="product-link-2"></div>
+                    <div class="product" style="background-image: url({% static 'img/product-41.jpg' %})"><a  href="/product-details/" class="product-link-2"></div>
             </div>
         </div>
-        <div class="hot-deals padding-site" style="background-image: url(/static/img/slider.jpg)">
+        <div class="hot-deals padding-site" style="background-image: url({% static 'img/slider.jpg' %})">
            <div class="hot-deals-slider" >
                <h4 class="hot-deals-h4">Hot deal</h4>
                <h2 class="hot-deals-h2">Fishnet  &nbsp; Chair</h2>
                <p class="hot-deals-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black</p>
-               <a href="#" class="button">order us<img class="arrow" src="/static/img/arrow.svg"></a>
+               <a href="#" class="button">order us<img class="arrow" src="{% static 'img/arrow.svg' %}"></a>
            </div>
            <div class="slider-pagination">
                 <a href="" class="circle"></a>
@@ -122,74 +89,29 @@
         </div>
         <div class="exlusive-product-wrap padding-site">
             <div class="exlusive-content">
-                <div class="exlusive-product-left" style="background-image: url(/static/img/product-1-lg.jpg)">
+                <div class="exlusive-product-left" style="background-image: url({% static 'img/product-1-lg.jpg' %})">
                    <div class="exlusive-product-text">
                         <h4 class="exlusive-product-h4">Exclusive</h4>
                         <h3 class="exlusive-product-h3">Fishnet Chair</h3>
                         <p class="exllusive-product-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black</p>
-                        <a href="#" class="button">order us<img class="arrow" src="/static/img/arrow.svg"></a>
+                        <a href="#" class="button">order us<img class="arrow" src="{% static 'img/arrow.svg' %}"></a>
                     </div>
                 </div>
                 <div class="exlusive-product-right">
-                    <div class="exlusive-product" style="background-image: url(/static/img/product-3-sm.jpg)"></div>
-                    <div class="exlusive-product" style="background-image: url(/static/img/product-2-sm.jpg)"></div>
-                    <div class="exlusive-product" style="background-image: url(/static/img/product-4-sm.jpg)"></div>
-                    <div class="exlusive-product" style="background-image: url(/static/img/product-5-sm.jpg)"></div>
+                    <div class="exlusive-product" style="background-image: url({% static 'img/product-3-sm.jpg' %})"></div>
+                    <div class="exlusive-product" style="background-image: url({% static 'img/product-2-sm.jpg' %})"></div>
+                    <div class="exlusive-product" style="background-image: url({% static 'img/product-4-sm.jpg' %})"></div>
+                    <div class="exlusive-product" style="background-image: url({% static 'img/product-5-sm.jpg' %})"></div>
                 </div>
             </div>
         </div>
-        <div class="mobile-app" style="background-image: url(/static/img/back-img.jpg)">
+        <div class="mobile-app" style="background-image: url({% static 'img/back-img.jpg' %})">
             <div class="mob-app-content">
                 <h4 class="mob-app-h4">mobile app</h4>
                 <h3 class="mob-app-h3">Find. Follow. Favorite.</h3>
                 <p class="mob-app-p">Save your favorites and share your style.</p>
-                <div class="mob-app-download"><img src="/static/img/app-store.png"><img src="/static/img/google-play.png"></div>
+                <div class="mob-app-download"><img src="{% static 'img/app-store.png' %}"><img src="{% static 'img/google-play.png' %}"></div>
             </div>
         </div>
     </div>
-</body>
-
-<footer class="footer">
-    <div class="footer-up">
-        <div class="footer-up-right">
-        <div class="footer-contact-as">
-       <h4 class="contact-as-h4">Contact Us</h4>
-       <p class="contact-as-p">132A Bridge Road Richmond VIC 
-Australia.
-<br><br>
-
-Talk to us on 1300 132
-info@interior.com</p>
-        
-    </div>
-        <div class="useful-information">
-        <h4 class="useful-info-h4">useful&nbsp;information</h4>
-        <div class="useful-info-col1">
-            <a class="useful-info-link" href="#">Sales&nbsp;terms</a>
-            <a class="useful-info-link" href="#">Customer&nbsp;care</a>
-            <a class="useful-info-link" href="#">Delivery</a>
-        </div>
-        <div class="useful-info-col2">
-            <a class="useful-info-link" href="#">Architect&nbsp;accounts</a>
-            <a class="useful-info-link" href="#">Careers</a>
-            <a class="useful-info-link" href="#">Exchanges&nbsp;&&nbsp;returns</a>
-        </div>
-            </div></div>
-        <div class="lets-stay">
-        <h4 class="lets-stay-h4">Let’s Stay in Touch!</h4>
-        <p class="lets-stay-p">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
-            <div class="lets-stay-input"><input type="email" placeholder="your email address"></div>
-</div>
-    </div>
-    <div class="footer-down">
-        <p class="copyright">© Copyright - INTERIOR 2016. All Rights Reserved.</p>
-        <div class="social-link">
-            <a href="#"><i class="fab fa-facebook-square"></i></a>
-            <a href="#"><i class="fab fa-twitter-square"></i></a>
-            <a href="#"><i class="fab fa-google-plus-square"></i></a>
-            <a href="#"><i class="fab fa-pinterest-square"></i></a>
-        </div>
-        <div class="terms-cond-link"><a href="#">Terms&nbsp;&&nbsp;Conditions</a>/<a href="#"> Privacy&nbsp;policy&nbsp;&&nbsp;Cookies</a></div>
-    </div>
-</footer>
-</html>
+{% endblock %}

@@ -55,7 +55,7 @@ body {
 .links-menu {
   display: flex;
   justify-content: space-between;
-  max-width: 40rem;
+  width: 40rem;
   list-style: none;
 }
 .slider-h4 {
@@ -211,6 +211,7 @@ body {
   width: 270px;
   height: 270px;
   margin-bottom: 30px;
+  background-size: cover;
 }
 .product-2 {
   width: 270px;
@@ -244,6 +245,7 @@ body {
   font-size: 22px;
   font-weight: 700;
   line-height: 29.88px;
+  text-align: center;
 }
 .product-p {
   color: #6c6c6c;
@@ -256,6 +258,15 @@ body {
 .product-link {
   width: 48px;
   height: 48px;
+}
+.product-link-2 {
+  width: 370px;
+  height: 370px;
+  position: absolute;
+}
+.product-link-2:hover {
+  background-color: white;
+  opacity: 0.5;
 }
 .product-text {
   height: 100%;
