@@ -55,7 +55,7 @@ body {
 .links-menu {
   display: flex;
   justify-content: space-between;
-  max-width: 40rem;
+  width: 40rem;
   list-style: none;
 }
 .slider-h4 {
@@ -256,6 +256,15 @@ body {
 .product-link {
   width: 48px;
   height: 48px;
+}
+.product-link-2 {
+  width: 370px;
+  height: 370px;
+  position: absolute;
+}
+.product-link-2:hover {
+  background-color: white;
+  opacity: 0.5;
 }
 .product-text {
   height: 100%;
