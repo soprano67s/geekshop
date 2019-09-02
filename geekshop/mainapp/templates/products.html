@@ -1,118 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Our Products Range</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="/static/fonts/font-awesome/css/font-awesome.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-
-<body>
-    <div class="container">
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
         <div class="wrapper padding-site">
             <div class="header">
-                <a class="logo" href="/"><img src="/static/img/logo.svg" alt="logo"></a>
-                <ul class="menu">
-                    <li><a href="/" class="menu-link">HOME </a></li>
-                    <li><a href="/products/" class="menu-link-active menu-link">PRODUCTS </a></li>
-                    <li><a href="/contacts/" class="menu-link">CONTACT</a></li>
-                    <li><a href="#" class="menu-link"><img src="/static/img/search.svg" alt="search"></a></li>
-                </ul>
+                <a class="logo" href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
+                {% include 'includes/inc_menu.html' %}
             </div>
             <div class="our-products">
                 <h3 class="title-h3">Our Products Range</h3>
             </div>
         </div>
+{% endblock %}
+{% block content %}
         <div class="our-products-content padding-site">
             <div class="tab-controll">
-                <a href="#" class="tab-link-active">All</a>
-                <a href="#" class="tab-link">HOME</a>            
-                <a href="#" class="tab-link">OFFICE</a>              
-                <a href="#" class="tab-link">FURNITURE</a>
-                <a href="#" class="tab-link">MODERN</a>              
-                <a href="#" class="tab-link">CLASSIC</a>
-                <div class="strok-active" style="width: 70px"></div><div class="stroke"></div>
+                {% include 'includes/inc_category.html' %}
             </div>
-            <div class="products padding-site">
-                <div class="product" style="background-image: url(/static/img/product-6.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-5.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-11.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-21.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-31.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-41.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-6.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-5.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-11.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-21.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-31.jpg)"></div>
-                <div class="product" style="background-image: url(/static/img/product-41.jpg)"></div>
+            <div class="products">
+                <div class="product" style="background-image: url({% static 'img/product-6.jpg' %})"><a  href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-5.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-11.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-21.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-31.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-41.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-6.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-5.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-11.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-21.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-31.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
+                <div class="product" style="background-image: url({% static 'img/product-41.jpg' %})"><a href="/product-details/" class="product-link-2"></a></div>
             </div>
             <div class="refresh">
                 <i class="fas fa-sync"></i>
             </div>            
         </div>
         <div class="promo-product">
-            <div class="promo-content-1" style="background-image: url(/static/img/promo-img1.jpg)">
+            <div class="promo-content-1" style="background-image: url({% static 'img/promo-img1.jpg' %})">
                 <h4 class="promo-h4">EXCLUSIVE</h4>
                 <h3 class="promo-h3">Fishnet Chair</h3>
                 <p class="promo-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black</p>
-                <a href="#" class="button">order us<img class="arrow" src="/static/img/arrow.svg"></a>
+                <a href="#" class="button">order us<img class="arrow" src="{% static 'img/arrow.svg' %}"></a>
             </div>
-            <div class="promo-content-2" style="background-image: url(/static/img/promo-img2.jpg)">
+            <div class="promo-content-2" style="background-image: url({% static 'img/promo-img2.jpg' %})">
                 <h4 class="promo-h4">EXCLUSIVE</h4>
                 <h3 class="promo-h3">Fishnet Chair</h3>
                 <p class="promo-p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black</p>
-                <a href="#" class="button">order us<img class="arrow" src="/static/img/arrow.svg"></a>
+                <a href="#" class="button">order us<img class="arrow" src="{% static 'img/arrow.svg' %}"></a>
             </div>
         </div>
         
     </div>
-</body>
-
-<footer class="footer">
-    <div class="footer-up">
-        <div class="footer-up-right">
-        <div class="footer-contact-as">
-       <h4 class="contact-as-h4">Contact Us</h4>
-       <p class="contact-as-p">132A Bridge Road Richmond VIC 
-Australia.
-<br><br>
-
-Talk to us on 1300 132
-info@interior.com</p>
-        
-    </div>
-        <div class="useful-information">
-        <h4 class="useful-info-h4">useful&nbsp;information</h4>
-        <div class="useful-info-col1">
-            <a class="useful-info-link" href="#">Sales&nbsp;terms</a>
-            <a class="useful-info-link" href="#">Customer&nbsp;care</a>
-            <a class="useful-info-link" href="#">Delivery</a>
-        </div>
-        <div class="useful-info-col2">
-            <a class="useful-info-link" href="#">Architect&nbsp;accounts</a>
-            <a class="useful-info-link" href="#">Careers</a>
-            <a class="useful-info-link" href="#">Exchanges&nbsp;&&nbsp;returns</a>
-        </div>
-            </div></div>
-        <div class="lets-stay">
-        <h4 class="lets-stay-h4">Let’s Stay in Touch!</h4>
-        <p class="lets-stay-p">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
-            <div class="lets-stay-input"><input type="email" placeholder="your email address"></div>
-</div>
-    </div>
-    <div class="footer-down">
-        <p class="copyright">© Copyright - INTERIOR 2016. All Rights Reserved.</p>
-        <div class="social-link">
-            <a href="#"><i class="fab fa-facebook-square"></i></a>
-            <a href="#"><i class="fab fa-twitter-square"></i></a>
-            <a href="#"><i class="fab fa-google-plus-square"></i></a>
-            <a href="#"><i class="fab fa-pinterest-square"></i></a>
-        </div>
-        <div class="terms-cond-link"><a href="#">Terms&nbsp;&&nbsp;Conditions</a>/<a href="#"> Privacy&nbsp;policy&nbsp;&&nbsp;Cookies</a></div>
-    </div>
-</footer>
-</html>
+{% endblock %}
